@@ -4,6 +4,9 @@ Demonstration of how we can create compound Plotly Dash UI components
 built as the combination of other components.
 
 ## Structure
+
+![img.png](screenshot.png)
+
 This app shows a layout with
 * a rectangle showing a color gradient formed from 3 colors.
 * three color mixers, each providing one of the colors used to 
