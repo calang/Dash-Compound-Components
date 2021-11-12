@@ -2,3 +2,4 @@ dash>=2.0
 cryptography
 dash-bootstrap-components
 dash_daq
+pylint
