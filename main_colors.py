@@ -56,20 +56,50 @@ app = Dash(__name__)
 
 
 color_mix1 = ColorMix('color_mix1')
+color_mix2 = ColorMix('color_mix2')
+color_mix3 = ColorMix('color_mix3')
 
 
 app.layout = dbc.Container([
-    color_mix1,
-    # html.Div([
-    #     html.Table([
-    #         html.Tr([
-    #             html.Td([c_slider_r]),
-    #             html.Td([c_slider_g]),
-    #             html.Td([c_slider_b]),
-    #         ])
-    #     ]),
-    # ])
+    html.Table([
+        html.Tr([
+            html.Td(
+                [
+                    html.Div(id="color-gradient",
+                             style=dict(width='200px', height='100px', margin='auto auto 10px auto', padding='20px'),
+                             ),
+                ],
+                colSpan=3
+            )
+        ]),
+        html.Tr([
+            html.Td([color_mix1], style=dict(border="1px solid black")),
+            html.Td([color_mix2], style=dict(border="1px solid black")),
+            html.Td([color_mix3], style=dict(border="1px solid black")),
+        ])
+    ],  style=dict(border="1px solid black")
+    ),
 ])
+
+
+@callback(
+    Output("color-gradient", 'style'),
+    Input(ColorMix.ids.color_mix('color_mix1'), 'style'),
+    Input(ColorMix.ids.color_mix('color_mix2'), 'style'),
+    Input(ColorMix.ids.color_mix('color_mix3'), 'style'),
+    State("color-gradient", 'style'),
+)
+def update_color_mix(style1, style2, style3, existing_style):
+
+    color1 = style1.get("backgroundColor")
+    color2 = style2.get("backgroundColor")
+    color3 = style3.get("backgroundColor")
+
+    style_color = existing_style.copy()
+    style_color.update(dict(backgroundImage=f"linear-gradient(to right, {color1}, {color2}, {color3})"))
+
+    return style_color
+
 
 # --- end of Try #2
 
