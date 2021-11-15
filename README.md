@@ -35,6 +35,41 @@ Callbacks can be defined using
 * attributes of components in a UICC within another UICC,  
   up to any desired level of nesting.
 
+### Scalability
+This approach proposes a way of 
+organizing UI components in a scalable manner, from the program 
+management point of view, making the code readable and more 
+manageable and avoiding code duplication wherever possible. 
+
+With respect to application performance, the approach uses component
+and subcomponent ids made of strings, 
+not dict-s, making the use of pattern-matching callbacks 
+unnecessary.
+This avoids the currently suggested limitation of 100+ callbacks 
+ in 
+[Dash 2.0 User's Guid - All-in-One Component Limitations](https://dash.plotly.com/all-in-one-components) section.
+
+At the very least we can say that all the necessary callbacks 
+will be created with a better organization of the code.
+
+## Relationships with [All in One Components](https://dash.plotly.com/all-in-one-components) (AIOC-s)
+
+The component interface functions that in UICC-s give 
+access to internal component ids (those in `class ids`) is
+compatible (has the same signature) with those in AIO Components.  
+This give raise to the following possibilities.
+
+1. AIOC-s can be nested within UICC-s
+2. AIOC-s can be replaced with equivalent UICC-s that use the same 
+   subcomponents, since their interface is the same; this assumes 
+   there will be no use of embedded UICC subcomponents
+3. UICC-s can also be implemented using pattern-matching callbacks,
+   when found convenient.
+   1. This might be the case when the UICC components to be 
+      addressed by such callbacks don't involve nested components
+   2. Convenience will depend on callback performance, among other 
+      things.
+
 ## How to use
 1. Clone this repo
    - `$ git clone __REPO_URL__`
@@ -51,5 +86,18 @@ Callbacks can be defined using
 * dash>=2.0
 * dash-bootstrap-components
 * dash_daq
+
+## Credits
+This approach is a derivation inspired on the
+[Dash All-in-One Components](https://dash.plotly.com/all-in-one-components)
+"convention for encapsulating layout and callbacks
+into a reusable structure".
+
+Past attempts at encapsulating Dash components that also 
+contributed ideas for this are
+
+1. [Dash Building Blocks](https://dash-building-blocks.readthedocs.io/en/latest/overview.html)
+2. [Dash OOP Components](https://github.com/oegedijk/dash_oop_components)
+3. [Composed Components](https://github.com/sdementen/dash-extensions/tree/composed-components#composed-components)
 
 **Author**: carlos.a.lang@intel.com

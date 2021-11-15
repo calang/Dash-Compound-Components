@@ -74,7 +74,7 @@ if __name__ == '__main__':
     app.run_server(
         host=HOST,
         port=PORT,
-        debug=True,
+        debug=False,
         # ssl_context='adhoc',
         ssl_context=('cert/example.crt', 'cert/example.key'),
     )
