@@ -33,13 +33,13 @@ UICC-s can be composed of simple UI components or other UICC-s.
 Callbacks can be defined using
 * attributes of components in a UICC, or
 * attributes of components in a UICC within another UICC,  
-  up to any desired level of nesting.
+  down to any desired level of nesting.
 
 ### Scalability
 This approach proposes a way of 
 organizing UI components in a scalable manner, from the program 
 management point of view, making the code readable and more 
-manageable and avoiding code duplication wherever possible. 
+manageable, avoiding code duplication wherever possible. 
 
 With respect to application performance, the approach uses component
 and subcomponent ids made of strings, 
@@ -49,8 +49,8 @@ This avoids the currently suggested limitation of 100+ callbacks
  in 
 [Dash 2.0 User's Guid - All-in-One Component Limitations](https://dash.plotly.com/all-in-one-components) section.
 
-At the very least we can say that all the necessary callbacks 
-will be created with a better organization of the code.
+As with AIOC-s, the necessary callbacks are created without any 
+duplicated code.
 
 ## Relationships with [All in One Components](https://dash.plotly.com/all-in-one-components) (AIOC-s)
 
@@ -72,13 +72,14 @@ This give raise to the following possibilities.
 
 ## How to use
 1. Clone this repo
-   - `$ git clone __REPO_URL__`
+   - `$ git clone __this_repo_url__`
 2. Create an environment for your packages
    - `$ python -m venv venv`
-   - `$ pip install -r requirements.txt`
 3. Activate your environment
    - `$ source venv/bin/activate`
-4. Run main.py
+4. Add required packages
+   - `$ pip install -r requirements.txt`
+5. Run main.py
    - `venv/bin/python src/main.py`
 
 ## Requirements
@@ -94,7 +95,7 @@ This approach is a derivation inspired on the
 into a reusable structure".
 
 Past attempts at encapsulating Dash components that also 
-contributed ideas for this are
+contributed ideas are
 
 1. [Dash Building Blocks](https://dash-building-blocks.readthedocs.io/en/latest/overview.html)
 2. [Dash OOP Components](https://github.com/oegedijk/dash_oop_components)
