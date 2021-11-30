@@ -101,4 +101,6 @@ contributed ideas are
 2. [Dash OOP Components](https://github.com/oegedijk/dash_oop_components)
 3. [Composed Components](https://github.com/sdementen/dash-extensions/tree/composed-components#composed-components)
 
-**Author**: carlos.a.lang@intel.com
+**Author**:  
+carlos.lang@gmail.com  
+carlos.a.lang@intel.com
