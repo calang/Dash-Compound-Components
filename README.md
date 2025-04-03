@@ -103,4 +103,3 @@ contributed ideas are
 
 **Author**:  
 carlos.lang@gmail.com  
-carlos.a.lang@intel.com
